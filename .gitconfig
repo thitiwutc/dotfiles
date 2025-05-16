@@ -1,0 +1,22 @@
+[core]
+    editor = vim
+[alias]
+    mg = merge
+    co = checkout
+    st = status
+    ca = commit --amend
+    aa = add --all
+    ci = commit
+    br = branch
+    df = diff
+    ph = push
+    pl = pull
+    ft = fetch
+    rv = revert
+    lg = log
+[user]
+    name = Thitiwut Chutipongwanit
+    email = 56450795+thitiwutc@users.noreply.github.com
+[mergetool]
+    keepBackup = false
+
