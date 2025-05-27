@@ -1,0 +1,192 @@
+version: "2"
+linters:
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - canonicalheader
+    - containedctx
+    - contextcheck
+    - copyloopvar
+    - dupword
+    - durationcheck
+    - errname
+    - errorlint
+    - exhaustive
+    - exhaustruct
+    - fatcontext
+    - forbidigo
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - gocritic
+    - goprintffuncname
+    - gosec
+    - iface
+    - importas
+    - inamedparam
+    - intrange
+    - ireturn
+    - loggercheck
+    - makezero
+    - mirror
+    - misspell
+    - musttag
+    - nilerr
+    - nilnesserr
+    - nilnil
+    - noctx
+    - nolintlint
+    - nonamedreturns
+    - nosprintfhostport
+    - perfsprint
+    - prealloc
+    - predeclared
+    - protogetter
+    - reassign
+    - revive
+    - rowserrcheck
+    - sloglint
+    - sqlclosecheck
+    - testableexamples
+    - testifylint
+    - unconvert
+    - usestdlibvars
+    - usetesting
+    - wastedassign
+    - wrapcheck
+  settings:
+    errorlint:
+      allowed-errors:
+        - err: "io.EOF"
+    exhaustruct:
+      exclude: # Depends on projects.
+    iface:
+      enable:
+        - identical
+        - opaque
+    revive:
+      rules:
+        - name: context-as-argument
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: deep-exit
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: defer
+          severity: warning
+          disabled: false
+          exclude: [""]
+          arguments:
+            - - "call-chain"
+              - "loop"
+              - "method-call"
+              - "recover"
+              - "return"
+        - name: early-return
+          severity: warning
+          disabled: false
+          exclude: [""]
+          arguments:
+            - "preserve-scope"
+            - "allow-jump"
+        - name: empty-lines
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: error-return
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: error-strings
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: errorf
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: identical-branches
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: import-alias-naming
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: import-shadowing
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: modifies-value-receiver
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: string-of-int
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: time-equal
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: time-naming
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: unchecked-type-assertion
+          severity: warning
+          disabled: false
+          exclude: [""]
+          arguments:
+            - accept-ignored-assertion-result: false
+        - name: unconditional-recursion
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: unreachable-code
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: use-any
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: use-errors-new
+          severity: warning
+          disabled: false
+          exclude: [""]
+        - name: waitgroup-by-value
+          severity: warning
+          disabled: false
+          exclude: [""]
+    loggercheck:
+      # Allow check for the github.com/go-kit/log library.
+      # Default: true
+      kitlog: false
+      # Allow check for the k8s.io/klog/v2 library.
+      # Default: true
+      klog: false
+      # Allow check for the github.com/go-logr/logr library.
+      # Default: true
+      logr: false
+      # Allow check for the log/slog library.
+      # Default: true
+      slog: false
+      # Allow check for the "sugar logger" from go.uber.org/zap library.
+      # Default: true
+      zap: false
+      # Require all logging keys to be inlined constant strings.
+      # Default: false
+      require-string-key: true
+      # Require printf-like format specifier (%s, %d for example) not present.
+      # Default: false
+      no-printf-like: true
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+
