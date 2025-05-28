@@ -170,24 +170,16 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-packadd! everforest
 " Important!!
 if has('termguicolors')
   set termguicolors
 endif
 
-" For light version.
+colorscheme gruvbox
+
 set background=light
 
-" Set contrast.
-" This configuration option should be placed before `colorscheme everforest`.
-" Available values: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'hard'
-
-" For better performance
-let g:everforest_better_performance = 1
-
-colorscheme everforest
+let g:gruvbox_contrast_light='hard'
 
 " Set extra options when running in GUI mode
 if has("gui_running")
