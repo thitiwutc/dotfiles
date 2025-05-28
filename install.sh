@@ -42,7 +42,7 @@ do
     if [[ $file == ".gitconfig" ]]; then
         default_email="$(grep 'email' .gitconfig | sed -E 's/\s*email\s*=\s*//')"
         echo -n ".gitconfig user.email: ($default_email) "
-        read email
+        read -r email
 
         if [[ -z $email ]]; then
             email=$default_email
@@ -66,10 +66,10 @@ do
     if [[ -e "$file" ]]; then
         if [[ -L "$homefile" && "$REPLACE" = true ]]; then
             rm "$homefile"
-            ln -s "$(realpath $file)" "$homefile"
+            ln -s "$(realpath "$file")" "$homefile"
             installed+=("$file")
-        elif [[ ! -L  $homefile ]]; then
-            ln -s "$(realpath $file)" "$homefile"
+        elif [[ ! -L  "$homefile" ]]; then
+            ln -s "$(realpath "$file")" "$homefile"
             installed+=("$file")
         else
             skipped+=("$file")
