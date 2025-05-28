@@ -18,7 +18,7 @@ done
 shift $((OPTIND - 1))
 
 # Default dotfiles
-dotfiles=(".vimrc" ".tmux.conf" ".gitconfig")
+dotfiles=(".vimrc" ".tmux.conf" ".gitconfig" ".aliases")
 
 if [[ $# -gt 0 ]]; then
     dotfiles=()
