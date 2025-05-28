@@ -18,7 +18,7 @@ done
 shift $((OPTIND - 1))
 
 # Default dotfiles
-dotfiles=(".vimrc" ".tmux.conf")
+dotfiles=(".vimrc" ".tmux.conf" ".gitconfig")
 
 if [[ $# -gt 0 ]]; then
     dotfiles=()
@@ -37,13 +37,39 @@ skipped=()
 for file in "${dotfiles[@]}"
 do
     homefile="$HOME/$file" 
+
+    # Copy file instead of creating symlink.
+    if [[ $file == ".gitconfig" ]]; then
+        default_email="$(grep 'email' .gitconfig | sed -E 's/\s*email\s*=\s*//')"
+        echo -n ".gitconfig user.email: ($default_email) "
+        read email
+
+        if [[ -z $email ]]; then
+            email=$default_email
+        fi
+
+        sed -E "s/email\s*=.*/email = $email/" .gitconfig > .gitconfig.tmp
+        diff "$homefile" .gitconfig.tmp > /dev/null
+
+        # Only copy file when file does not exist or file content is different.
+        if [[ ! -e "$homefile" || $? -gt 0 ]]; then
+            mv .gitconfig.tmp "$homefile"
+            installed+=("$file")
+        else
+            rm .gitconfig.tmp
+            skipped+=("$file")
+        fi
+
+        continue
+    fi
+
     if [[ -e "$file" ]]; then
         if [[ -L "$homefile" && "$REPLACE" = true ]]; then
             rm "$homefile"
-	    ln -s "$(realpath $file)" "$homefile"
+            ln -s "$(realpath $file)" "$homefile"
             installed+=("$file")
         elif [[ ! -L  $homefile ]]; then
-	    ln -s "$(realpath $file)" "$homefile"
+            ln -s "$(realpath $file)" "$homefile"
             installed+=("$file")
         else
             skipped+=("$file")
@@ -59,6 +85,6 @@ if [[ ${#installed[@]} -gt 0 ]]; then
 fi
 
 if [[ ${#skipped[@]} -gt 0 ]]; then
-    echo -e "Skipped (already exist): \033[0;33m${skipped[*]}\033[0m"
+    echo -e "Skipped: \033[0;33m${skipped[*]}\033[0m"
 fi
 
