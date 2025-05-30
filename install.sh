@@ -44,8 +44,11 @@ for file in "${dotfiles[@]}"
 do
     homefile="$HOME/$file" 
 
-    # Copy file instead of creating symlink.
-    if [[ $file == ".gitconfig" ]]; then
+    if [[ ! -e "$file" ]]; then
+        echo "File \"$file\" not exist"
+        exit 1
+    fi
+
         default_email="$(grep 'email' .gitconfig | sed -E 's/\s*email\s*=\s*//')"
         echo -n ".gitconfig user.email: ($default_email) "
         read -r email
@@ -80,9 +83,16 @@ do
         else
             skipped+=("$file")
         fi
+
+    if [[ -L "$homefile" && "$REPLACE" = true ]]; then
+        rm "$homefile"
+        ln -s "$(realpath "$file")" "$homefile"
+        installed+=("$file")
+    elif [[ ! -L  "$homefile" ]]; then
+        ln -s "$(realpath "$file")" "$homefile"
+        installed+=("$file")
     else
-        echo "File \"$file\" not exist"
-        exit 1
+        skipped+=("$file")
     fi
 done
 
