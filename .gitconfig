@@ -16,6 +16,7 @@
     ft = fetch
     rv = revert
     lg = log
+    graph = log --all --graph --decorate --oneline
 [user]
     name = Thitiwut Chutipongwanit
     email = 56450795+thitiwutc@users.noreply.github.com
