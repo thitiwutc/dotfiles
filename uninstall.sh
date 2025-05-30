@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-dotfiles=(".vimrc" ".tmux.conf" ".gitconfig" ".aliases")
+# Default dotfiles
+dotfiles=(
+    ".vimrc"
+    ".tmux.conf"
+    ".gitconfig"
+    ".gitconfig_global"
+    ".aliases"
+)
 
 if [[ $# -gt 0 ]]; then
     dotfiles=()
