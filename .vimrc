@@ -170,16 +170,12 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
+set background=light
+
 " Important!!
 if has('termguicolors')
   set termguicolors
 endif
-
-colorscheme gruvbox
-
-set background=light
-
-let g:gruvbox_contrast_light='hard'
 
 " Set extra options when running in GUI mode
 if has("gui_running")
