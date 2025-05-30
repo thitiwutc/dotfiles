@@ -73,19 +73,6 @@ do
         continue
     fi
 
-    if [[ "$file" == ".gitconfig_global" ]]; then
-        diff "$homefile" .gitconfig_global > /dev/null
-
-        if [[ ! -e "$homefile" || $? -gt 0 ]]; then
-            cp .gitconfig_global "$homefile"
-            installed+=("$file")
-        else
-            skipped+=("$file")
-        fi
-
-        continue
-    fi
-
     if [[ -L "$homefile" && "$REPLACE" = true ]]; then
         rm "$homefile"
         ln -s "$(realpath "$file")" "$homefile"
