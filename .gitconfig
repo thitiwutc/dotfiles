@@ -1,5 +1,5 @@
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitconfig_global
 [alias]
     mg = merge
