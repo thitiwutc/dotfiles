@@ -50,7 +50,7 @@ do
     fi
 
     if [[ "$file" == "nvim" ]]; then
-        homepath="$HOME/.config"
+        homepath="$HOME/.config/nvim"
     fi
 
     if [[ "$file" == ".gitconfig" ]]; then
@@ -77,11 +77,20 @@ do
         continue
     fi
 
+
     if [[ -L "$homepath" && "$REPLACE" = true ]]; then
+	diff -rq "$file" "$homepath" > /dev/null
+
+	# Skip when file content is indifferent.
+	if [[ $? -gt 0 ]]; then
+		continue
+	fi
+
         rm "$homepath"
         ln -s "$(realpath "$file")" "$homepath"
         installed+=("$file")
     elif [[ ! -L  "$homepath" ]]; then
+	echo "HERE $homepath $file"
         ln -s "$(realpath "$file")" "$homepath"
         installed+=("$file")
     else
