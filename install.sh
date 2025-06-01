@@ -90,7 +90,6 @@ do
         ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
     elif [[ ! -L  "$installed_path" ]]; then
-	echo "HERE $installed_path $file"
         ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
     else
