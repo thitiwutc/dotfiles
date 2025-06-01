@@ -42,7 +42,7 @@ skipped=()
 
 for file in "${dotfiles[@]}"
 do
-    homepath="$HOME/$file"
+    installed_path="$HOME/$file"
 
     if [[ ! -e "$file" ]]; then
         echo "File \"$file\" not exist"
@@ -50,7 +50,7 @@ do
     fi
 
     if [[ "$file" == "nvim" ]]; then
-        homepath="$HOME/.config/nvim"
+        installed_path="$HOME/.config/nvim"
     fi
 
     if [[ "$file" == ".gitconfig" ]]; then
@@ -63,11 +63,11 @@ do
         fi
 
         sed -E "s/email\s*=.*/email = $email/" .gitconfig > .gitconfig.tmp
-        diff "$homepath" .gitconfig.tmp > /dev/null
+        diff "$installed_path" .gitconfig.tmp > /dev/null
 
         # Only copy file when file does not exist or file content is different.
-        if [[ ! -e "$homepath" || $? -gt 0 ]]; then
-            mv .gitconfig.tmp "$homepath"
+        if [[ ! -e "$installed_path" || $? -gt 0 ]]; then
+            mv .gitconfig.tmp "$installed_path"
             installed+=("$file")
         else
             rm .gitconfig.tmp
@@ -78,20 +78,20 @@ do
     fi
 
 
-    if [[ -L "$homepath" && "$REPLACE" = true ]]; then
-	diff -rq "$file" "$homepath" > /dev/null
+    if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
+	diff -rq "$file" "$installed_path" > /dev/null
 
 	# Skip when file content is indifferent.
 	if [[ $? -gt 0 ]]; then
 		continue
 	fi
 
-        rm "$homepath"
-        ln -s "$(realpath "$file")" "$homepath"
+        rm "$installed_path"
+        ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
-    elif [[ ! -L  "$homepath" ]]; then
-	echo "HERE $homepath $file"
-        ln -s "$(realpath "$file")" "$homepath"
+    elif [[ ! -L  "$installed_path" ]]; then
+	echo "HERE $installed_path $file"
+        ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
     else
         skipped+=("$file")
