@@ -42,7 +42,7 @@ skipped=()
 
 for file in "${dotfiles[@]}"
 do
-    homefile="$HOME/$file" 
+    homepath="$HOME/$file"
 
     if [[ ! -e "$file" ]]; then
         echo "File \"$file\" not exist"
@@ -59,11 +59,11 @@ do
         fi
 
         sed -E "s/email\s*=.*/email = $email/" .gitconfig > .gitconfig.tmp
-        diff "$homefile" .gitconfig.tmp > /dev/null
+        diff "$homepath" .gitconfig.tmp > /dev/null
 
         # Only copy file when file does not exist or file content is different.
-        if [[ ! -e "$homefile" || $? -gt 0 ]]; then
-            mv .gitconfig.tmp "$homefile"
+        if [[ ! -e "$homepath" || $? -gt 0 ]]; then
+            mv .gitconfig.tmp "$homepath"
             installed+=("$file")
         else
             rm .gitconfig.tmp
@@ -73,12 +73,12 @@ do
         continue
     fi
 
-    if [[ -L "$homefile" && "$REPLACE" = true ]]; then
-        rm "$homefile"
-        ln -s "$(realpath "$file")" "$homefile"
+    if [[ -L "$homepath" && "$REPLACE" = true ]]; then
+        rm "$homepath"
+        ln -s "$(realpath "$file")" "$homepath"
         installed+=("$file")
-    elif [[ ! -L  "$homefile" ]]; then
-        ln -s "$(realpath "$file")" "$homefile"
+    elif [[ ! -L  "$homepath" ]]; then
+        ln -s "$(realpath "$file")" "$homepath"
         installed+=("$file")
     else
         skipped+=("$file")
