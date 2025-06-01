@@ -2,7 +2,7 @@
 
 # Default dotfiles
 dotfiles=(
-    ".vimrc"
+    "nvim"
     ".tmux.conf"
     ".gitconfig"
     ".gitconfig_global"
@@ -25,8 +25,14 @@ failed=()
 
 for file in "${dotfiles[@]}"
 do
+	installed_path="$HOME/$file"
+
+	if [[ "$file" == "nvim" ]]; then
+		installed_path="$HOME/.config/nvim"
+	fi
+
     # Check if file deleted successfully.
-    if rm "$HOME/$file" 2> /dev/null; then
+    if rm "$installed_path" 2> /dev/null; then
         deleted+=("$file")
     else
         failed+=("$file")
