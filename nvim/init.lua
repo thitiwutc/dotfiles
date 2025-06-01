@@ -16,6 +16,10 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- 1 tab is 4 spaces
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
 
