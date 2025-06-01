@@ -79,10 +79,10 @@ do
 
 
     if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
-	diff -rq "$file" "$installed_path" > /dev/null
+	
 
 	# Skip when file content is indifferent.
-	if [[ $? -gt 0 ]]; then
+	if ! diff -rq "$file" "$installed_path" > /dev/null; then
 		continue
 	fi
 
