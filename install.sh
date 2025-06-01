@@ -19,7 +19,7 @@ shift $((OPTIND - 1))
 
 # Default dotfiles
 dotfiles=(
-    ".vimrc"
+    "nvim"
     ".tmux.conf"
     ".gitconfig"
     ".gitconfig_global"
@@ -47,6 +47,10 @@ do
     if [[ ! -e "$file" ]]; then
         echo "File \"$file\" not exist"
         exit 1
+    fi
+
+    if [[ "$file" == "nvim" ]]; then
+        homepath="$HOME/.config"
     fi
 
     if [[ "$file" == ".gitconfig" ]]; then
