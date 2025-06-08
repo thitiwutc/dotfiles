@@ -4,3 +4,4 @@ theme = "onelight"
     line-number = "relative"
     true-color = true
     color-modes = true
+    auto-pairs = false
