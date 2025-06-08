@@ -19,7 +19,7 @@ shift $((OPTIND - 1))
 
 # Default dotfiles
 dotfiles=(
-    "nvim"
+    "helix"
     ".tmux.conf"
     ".gitconfig"
     ".gitconfig_global"
@@ -49,8 +49,32 @@ do
         exit 1
     fi
 
-    if [[ "$file" == "nvim" ]]; then
-        installed_path="$HOME/.config/nvim"
+    if [[ "$file" == "helix" ]]; then
+        installed_dir="$HOME/.config/helix"
+        helix_files="$(realpath "$file"/*)"
+
+        for helix_file in "${helix_files[@]}"
+        do
+            installed_path="$installed_dir/$(basename "$helix_file")"
+
+            if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
+                # Skip when file content is indifferent.
+                if ! diff -rq "$helix_file" "$installed_path" > /dev/null; then
+                    continue
+                fi
+
+                rm "$installed_path"
+                ln -s "$helix_file" "$installed_path"
+                installed+=("$file")
+            elif [[ ! -L  "$installed_path" ]]; then
+                ln -s "$helix_file" "$installed_path"
+                installed+=("$file")
+            else
+                skipped+=("$file")
+            fi
+        done
+
+        continue
     fi
 
     if [[ "$file" == ".gitconfig" ]]; then
@@ -79,12 +103,11 @@ do
 
 
     if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
-	
 
-	# Skip when file content is indifferent.
-	if ! diff -rq "$file" "$installed_path" > /dev/null; then
-		continue
-	fi
+        # Skip when file content is indifferent.
+        if ! diff -rq "$file" "$installed_path" > /dev/null; then
+            continue
+        fi
 
         rm "$installed_path"
         ln -s "$(realpath "$file")" "$installed_path"
