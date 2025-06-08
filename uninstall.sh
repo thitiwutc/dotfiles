@@ -2,7 +2,7 @@
 
 # Default dotfiles
 dotfiles=(
-    "nvim"
+    "helix"
     ".tmux.conf"
     ".gitconfig"
     ".gitconfig_global"
@@ -25,11 +25,30 @@ failed=()
 
 for file in "${dotfiles[@]}"
 do
-	installed_path="$HOME/$file"
+    if [[ "$file" == "helix" ]]; then
+        installed_dir="$HOME/.config/helix"
+        helix_files="$(realpath "$file"/*)"
 
-	if [[ "$file" == "nvim" ]]; then
-		installed_path="$HOME/.config/nvim"
-	fi
+        for helix_file in "${helix_files[@]}"
+        do
+            installed_path="$installed_dir/$(basename "$helix_file")"
+
+            # Check if file deleted successfully.
+            if rm "$installed_path" 2> /dev/null; then
+                deleted+=("$file")
+            else
+                failed+=("$file")
+            fi
+        done
+
+        continue
+    fi
+
+    installed_path="$HOME/$file"
+
+    if [[ "$file" == "nvim" ]]; then
+        installed_path="$HOME/.config/nvim"
+    fi
 
     # Check if file deleted successfully.
     if rm "$installed_path" 2> /dev/null; then
