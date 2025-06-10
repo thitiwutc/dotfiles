@@ -28,6 +28,7 @@ do
     if [[ "$file" == "helix" ]]; then
         installed_dir="$HOME/.config/helix"
         helix_files="$(realpath "$file"/*)"
+        helix_files=($helix_files)
 
         for helix_file in "${helix_files[@]}"
         do
