@@ -25,29 +25,22 @@ failed=()
 
 for file in "${dotfiles[@]}"
 do
+    installed_path="$HOME/$file"
+
     if [[ "$file" == "helix" ]]; then
-        installed_dir="$HOME/.config/helix"
-        IFS=$'\n'  read -d '' -r -a helix_files <<< "$(realpath "$file"/*)"
+        installed_path="$HOME/.config/helix"
 
-        for helix_file in "${helix_files[@]}"
-        do
-            installed_path="$installed_dir/$(basename "$helix_file")"
-
-            # Check if file deleted successfully.
-            if rm "$installed_path" 2> /dev/null; then
+        if [[ -e "$installed_path" ]]; then
+            if rm -rf "$installed_path" 2> /dev/null; then
                 deleted+=("$file")
             else
                 failed+=("$file")
             fi
-        done
+        else
+            failed+=("$file")
+        fi
 
         continue
-    fi
-
-    installed_path="$HOME/$file"
-
-    if [[ "$file" == "nvim" ]]; then
-        installed_path="$HOME/.config/nvim"
     fi
 
     # Check if file deleted successfully.
