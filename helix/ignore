@@ -1,0 +1,8 @@
+# MacOS
+.DS_Store
+
+# JetBrains IDEs
+.idea/
+
+# Log
+*.log
