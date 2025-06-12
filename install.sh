@@ -22,7 +22,7 @@ dotfiles=(
     "helix"
     ".tmux.conf"
     ".gitconfig"
-    ".gitconfig_global"
+    ".gitignore_global"
     ".aliases"
 )
 
