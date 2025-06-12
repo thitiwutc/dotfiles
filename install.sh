@@ -50,29 +50,18 @@ do
     fi
 
     if [[ "$file" == "helix" ]]; then
-        installed_dir="$HOME/.config/helix"
-        IFS=$'\n' read -d '' -r -a helix_files <<< "$(realpath "$file"/*)"
+        installed_path="$HOME/.config/helix"
 
-        for helix_file in "${helix_files[@]}"
-        do
-            installed_path="$installed_dir/$(basename "$helix_file")"
-
-            if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
-                # Skip when file content is indifferent.
-                if ! diff -rq "$helix_file" "$installed_path" > /dev/null; then
-                    continue
-                fi
-
-                rm "$installed_path"
-                ln -s "$helix_file" "$installed_path"
-                installed+=("$file")
-            elif [[ ! -L  "$installed_path" ]]; then
-                ln -s "$helix_file" "$installed_path"
-                installed+=("$file")
-            else
-                skipped+=("$file")
-            fi
-        done
+        if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
+            rm -rf "$installed_path"
+            ln -s "$(realpath "$file")" "$installed_path"
+            installed+=("$file")
+        elif [[ ! -L  "$installed_path" ]]; then
+            ln -s "$(realpath "$file")" "$installed_path"
+            installed+=("$file")
+        else
+            skipped+=("$file")
+        fi
 
         continue
     fi
