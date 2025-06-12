@@ -1,5 +1,8 @@
 [[language]]
-  name = "python"
-  auto-format = true
-  language-servers = ["pylsp", "ruff"]
+name = "python"
+auto-format = true
+language-servers = ["pylsp", "ruff"]
+formatter = { command = "ruff", args = ["format", "-"]}
 
+[language-server.pylsp]
+config = { pylsp = { plugins = { pylint = { enabled = true, args = ["--errors-only"] } } } }
