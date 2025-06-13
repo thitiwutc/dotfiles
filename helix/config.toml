@@ -6,3 +6,4 @@ theme = "solarized_light"
     color-modes = true
     auto-pairs = false
     shell = ["bash", "-c"]
+    bufferline = "multiple"
