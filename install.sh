@@ -55,6 +55,12 @@ do
         installed_path="$HOME/.config/helix"
 
         if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
+            # Skip when file content is indifferent.
+            if diff -rq "$file" "$installed_path" > /dev/null; then
+                skipped+=("$file")
+                continue
+            fi
+
             rm -rf "$installed_path"
             ln -s "$(realpath "$file")" "$installed_path"
             installed+=("$file")
