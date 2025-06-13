@@ -25,6 +25,7 @@ dotfiles=(
     ".gitignore_global"
     ".aliases"
     ".zshrc"
+    ".vimrc"
 )
 
 if [[ $# -gt 0 ]]; then
