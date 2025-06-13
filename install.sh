@@ -39,6 +39,7 @@ else
 fi
 
 installed=()
+failed=()
 skipped=()
 
 for file in "${dotfiles[@]}"
@@ -101,9 +102,12 @@ do
         rm "$installed_path"
         ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
-        ln -s "$(realpath "$file")" "$installed_path"
-        installed+=("$file")
     elif [[ ! -e  "$installed_path" ]]; then
+        if ln -s "$(realpath "$file")" "$installed_path"; then
+            installed+=("$file")
+        else
+            failed+=("$file")
+        fi
     else
         skipped+=("$file")
     fi
@@ -113,7 +117,10 @@ if [[ ${#installed[@]} -gt 0 ]]; then
     echo -e "Installed: \033[0;32m${installed[*]}\033[0m"
 fi
 
+if [[ ${#failed[@]} -gt 0 ]]; then
+    echo -e "Failed: \033[0;31m${failed[*]}\033[0m"
+fi
+
 if [[ ${#skipped[@]} -gt 0 ]]; then
     echo -e "Skipped: \033[0;33m${skipped[*]}\033[0m"
 fi
-
