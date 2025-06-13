@@ -53,11 +53,11 @@ do
     if [[ "$file" == "helix" ]]; then
         installed_path="$HOME/.config/helix"
 
-        if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
+        if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
             rm -rf "$installed_path"
             ln -s "$(realpath "$file")" "$installed_path"
             installed+=("$file")
-        elif [[ ! -L  "$installed_path" ]]; then
+        elif [[ ! -e  "$installed_path" ]]; then
             ln -s "$(realpath "$file")" "$installed_path"
             installed+=("$file")
         else
@@ -91,9 +91,7 @@ do
         continue
     fi
 
-
-    if [[ -L "$installed_path" && "$REPLACE" = true ]]; then
-
+    if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
         # Skip when file content is indifferent.
         if ! diff -rq "$file" "$installed_path" > /dev/null; then
             continue
@@ -102,9 +100,9 @@ do
         rm "$installed_path"
         ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
-    elif [[ ! -L  "$installed_path" ]]; then
         ln -s "$(realpath "$file")" "$installed_path"
         installed+=("$file")
+    elif [[ ! -e  "$installed_path" ]]; then
     else
         skipped+=("$file")
     fi
