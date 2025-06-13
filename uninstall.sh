@@ -7,6 +7,7 @@ dotfiles=(
     ".gitconfig"
     ".gitignore_global"
     ".aliases"
+    ".zshrc"
 )
 
 if [[ $# -gt 0 ]]; then
