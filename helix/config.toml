@@ -1,9 +1,12 @@
 theme = "solarized_light"
 
 [editor]
-    line-number = "relative"
-    true-color = true
-    color-modes = true
-    auto-pairs = false
-    shell = ["bash", "-c"]
-    bufferline = "multiple"
+line-number = "relative"
+true-color = true
+color-modes = true
+auto-pairs = false
+shell = ["bash", "-c"]
+bufferline = "multiple"
+
+[editor.soft-wrap]
+enable = true
