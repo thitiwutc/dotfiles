@@ -6,3 +6,12 @@ formatter = { command = "ruff", args = ["format", "-"]}
 
 [language-server.pylsp]
 config = { pylsp = { plugins = { pylint = { enabled = true } } } }
+
+[language-server.golangci-lint-lsp.config]
+command = [
+  "golangci-lint",
+  "run",
+  "--output.json.path=stdout",
+  "--show-stats=false",
+  "--issues-exit-code=1",
+]
