@@ -6,3 +6,6 @@
 
 # Log
 *.log
+
+# NodeJS
+node_modules/
