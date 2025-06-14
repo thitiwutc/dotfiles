@@ -4,6 +4,14 @@ auto-format = true
 language-servers = ["pylsp", "ruff"]
 formatter = { command = "ruff", args = ["format", "-"]}
 
+[[language]]
+name = "javascript"
+auto-format = true
+
+[[language]]
+name = "typescript"
+auto-format = true
+
 [language-server.pylsp]
 config = { pylsp = { plugins = { pylint = { enabled = true } } } }
 
