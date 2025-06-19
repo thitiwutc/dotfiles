@@ -10,3 +10,7 @@ bufferline = "multiple"
 
 [editor.soft-wrap]
 enable = true
+
+[keys.select]
+# Include the last line for "ge".
+"g" = { "e" = "goto_file_end" }
