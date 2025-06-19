@@ -8,9 +8,3 @@ bin/
 
 # Log
 *.log
-
-# NodeJS
-node_modules/
-
-# Go
-vendor/
