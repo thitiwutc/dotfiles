@@ -12,7 +12,7 @@ bufferline = "multiple"
 enable = true
 
 [editor.inline-diagnostics]
-cursor-line = "info" # show warnings, errors, and info on the cursorline inline
+cursor-line = "hint" # show warnings, errors, info, and hint on the cursorline inline
 
 [keys.select]
 # Include the last line for "ge".
