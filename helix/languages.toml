@@ -12,8 +12,8 @@ auto-format = true
 name = "typescript"
 auto-format = true
 
-[language-server.pylsp]
-config = { pylsp = { plugins = { pylint = { enabled = true } } } }
+[language-server.pylsp.config.pylsp.plugins.pylint]
+enabled = true
 
 [language-server.golangci-lint-lsp.config]
 command = [
