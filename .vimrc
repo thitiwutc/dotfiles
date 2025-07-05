@@ -78,3 +78,12 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" size of a hard tabstop
+set tabstop=4
+
+" always uses spaces instead of tab characters
+set expandtab
+
+" size of an "indent"
+set shiftwidth=4
