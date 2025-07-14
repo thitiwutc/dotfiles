@@ -8,9 +8,6 @@ auto-pairs = false
 shell = ["bash", "-c"]
 bufferline = "multiple"
 
-[editor.soft-wrap]
-enable = true
-
 [editor.inline-diagnostics]
 cursor-line = "hint" # show warnings, errors, info, and hint on the cursorline inline
 
