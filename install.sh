@@ -19,7 +19,7 @@ shift $((OPTIND - 1))
 
 # Default dotfiles
 dotfiles=(
-    "helix"
+    "nvim"
     ".tmux.conf"
     ".gitconfig"
     ".gitignore_global"
@@ -52,8 +52,8 @@ do
         exit 1
     fi
 
-    if [[ "$file" == "helix" ]]; then
-        installed_path="$HOME/.config/helix"
+    if [[ "$file" == "nvim" ]]; then
+        installed_path="$HOME/.config/nvim"
 
         if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
             # Skip when file content is indifferent.
