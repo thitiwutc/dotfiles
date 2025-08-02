@@ -14,7 +14,6 @@ auto-format = true
 
 [[language]]
 name = "c"
-indent = { tab-width = 8, unit = "        " }
 
 [language-server.pylsp.config.pylsp.plugins.pylint]
 enabled = true
