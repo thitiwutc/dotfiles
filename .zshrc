@@ -126,3 +126,6 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 tmux &> /dev/null
 
 [[ -s "/home/thitiwut/.gvm/scripts/gvm" ]] && source "/home/thitiwut/.gvm/scripts/gvm"
+
+# Export Neovim path
+export PATH=$HOME/neovim/bin:$PATH
