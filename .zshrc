@@ -124,3 +124,5 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 [[ -s $HOME/.aliases ]] && source $HOME/.aliases
 tmux &> /dev/null
+
+[[ -s "/home/thitiwut/.gvm/scripts/gvm" ]] && source "/home/thitiwut/.gvm/scripts/gvm"
