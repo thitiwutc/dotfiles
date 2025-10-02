@@ -121,6 +121,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:$HOME/FlameGraph"
 
 [[ -s $HOME/.aliases ]] && source $HOME/.aliases
 tmux &> /dev/null
