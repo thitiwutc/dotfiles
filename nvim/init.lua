@@ -541,6 +541,7 @@ require("lazy").setup({
 				pyright = {},
 				html = {},
 				ts_ls = {},
+				jsonls = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
