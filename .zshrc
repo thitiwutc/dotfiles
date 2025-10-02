@@ -72,12 +72,6 @@ export DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting)
 
-# Declare the variable
-typeset -A ZSH_HIGHLIGHT_STYLES
-
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta,bold'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta,bold'
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
