@@ -12,6 +12,15 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Enable function folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Start with all folds open
+vim.o.foldlevel = 99 -- High level = all folds open
+vim.o.foldlevelstart = 99 -- Also open on file load
+vim.o.foldenable = true -- Enable folding in general
+
 -- Show line numbers
 vim.o.number = true
 vim.o.relativenumber = true
