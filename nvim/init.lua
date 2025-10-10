@@ -136,6 +136,9 @@ vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Open Gitsigns command palatte.
+vim.keymap.set("n", "<leader>g", "<cmd>Gitsigns<cr>")
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -551,6 +554,8 @@ require("lazy").setup({
 				html = {},
 				ts_ls = {},
 				jsonls = {},
+				dockerls = {},
+				jdtls = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -610,6 +615,9 @@ require("lazy").setup({
 					end,
 				},
 			})
+
+			-- Load jdtls config
+			require("lsp.jdtls")
 		end,
 	},
 
@@ -630,18 +638,26 @@ require("lazy").setup({
 		opts = {
 			notify_on_error = false,
 			format_on_save = function(bufnr)
+				local ft = vim.bo[bufnr].filetype
+
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
 				local disable_filetypes = { c = true, cpp = true }
-				if disable_filetypes[vim.bo[bufnr].filetype] then
+				if disable_filetypes[ft] then
 					return nil
-				else
-					return {
-						timeout_ms = 500,
-						lsp_format = "fallback",
-					}
 				end
+
+				-- Java: organize imports first
+				if ft == "java" then
+					-- Remove unused imports
+					pcall(require("jdtls").organize_imports)
+				end
+
+				return {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				}
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
@@ -654,6 +670,10 @@ require("lazy").setup({
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
+	},
+
+	{
+		"mfussenegger/nvim-jdtls",
 	},
 
 	{ -- Autocompletion
@@ -779,7 +799,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
 
@@ -846,6 +866,7 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
+				"java",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
@@ -864,6 +885,12 @@ require("lazy").setup({
 		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
 		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+	},
+	{
+		{
+			"aklt/plantuml-syntax",
+			ft = { "plantuml", "puml", "uml" },
+		},
 	},
 
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
