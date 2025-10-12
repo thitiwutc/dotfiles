@@ -981,5 +981,13 @@ require("lazy").setup({
 	},
 })
 
--- Load modules.
-require("lsp.jdtls")
+-- Load lsp.jdtls only for java files.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	callback = function()
+		-- Load your JDTLS configuration only for Java files
+		if not package.loaded["lsp.jdtls"] then
+			require("lsp.jdtls")
+		end
+	end,
+})
