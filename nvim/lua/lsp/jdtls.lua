@@ -11,7 +11,7 @@ local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
 local config = {
 	cmd = {
-		"java",
+		"/home/thitiwut/.sdkman/candidates/java/21.0.8-tem/bin/java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
