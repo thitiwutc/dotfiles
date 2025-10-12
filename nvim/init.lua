@@ -845,6 +845,8 @@ require("lazy").setup({
 			end
 
 			require("mini.files").setup()
+			require("mini.comment").setup()
+			require("mini.icons").setup()
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
