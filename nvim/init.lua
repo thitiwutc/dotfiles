@@ -139,6 +139,9 @@ vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 -- Open Gitsigns command palatte.
 vim.keymap.set("n", "<leader>g", "<cmd>Gitsigns<cr>")
 
+-- Open MiniFiles file explorer.
+vim.keymap.set("n", "<leader>e", "<cmd>:lua MiniFiles.open()<cr>")
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -845,8 +848,7 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			-- ... and there is more!
-			--  Check out: https://github.com/echasnovski/mini.nvim
+			require("mini.files").setup()
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
@@ -941,6 +943,3 @@ require("lazy").setup({
 		},
 	},
 })
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
