@@ -748,6 +748,21 @@ require("lazy").setup({
 							i(0),
 							t({ "", "}" }),
 						}),
+
+						-- Package + interface snippet
+						s("iclass", {
+							-- Package line
+							t("package "),
+							i(1, "com.example"),
+							t({ ";", "" }),
+							t({ "", "" }),
+							-- Class declaration using file name
+							t("public interface "),
+							f(filename_without_ext, {}),
+							t({ " {", "\t" }),
+							i(0),
+							t({ "", "}" }),
+						}),
 					})
 				end,
 			},
