@@ -130,3 +130,37 @@ tmux &> /dev/null
 
 # Export Neovim path
 export PATH=$HOME/neovim/bin:$PATH
+
+detect_os() {
+  # Default
+  OS="unknown"
+
+  # Check for WSL
+  if grep -qi "microsoft" /proc/version 2>/dev/null; then
+    OS="wsl"
+  elif [ "$(uname)" = "Linux" ]; then
+    OS="linux"
+  elif [ "$(uname)" = "Darwin" ]; then
+    OS="macos"
+  elif [[ "$OS" == *"NT"* || "$(uname -o 2>/dev/null)" == "Msys" || "$(uname -o 2>/dev/null)" == "Cygwin" ]]; then
+    OS="windows"
+  fi
+
+  echo "$OS"
+}
+
+case "$(detect_os)" in
+  wsl)
+	alias here="explorer.exe ."
+    ;;
+  linux)
+    ;;
+  macos)
+	alias here="finder ."
+    ;;
+  windows)
+    ;;
+  *)
+    ;;
+esac
+
