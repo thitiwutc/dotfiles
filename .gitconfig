@@ -3,6 +3,7 @@ editor = nvim
 excludesfile = ~/.gitignore_global
 [alias]
 mg = merge
+mgnf = merge --no-ff
 co = checkout
 st = status
 ca = commit --amend
@@ -11,7 +12,9 @@ ai = add -i
 ap = add -p
 ci = commit
 br = branch
+ba = branch --all
 df = diff
+ds = diff --staged
 ph = push
 pl = pull
 ft = fetch
