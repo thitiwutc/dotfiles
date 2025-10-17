@@ -56,7 +56,7 @@ function M.setup()
 					},
 				},
 				format = {
-					enabled = false,
+					enabled = true,
 				},
 			},
 		},
