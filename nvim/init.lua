@@ -661,12 +661,6 @@ require("lazy").setup({
 					return nil
 				end
 
-				-- Java: organize imports first
-				if ft == "java" then
-					-- Remove unused imports
-					pcall(require("jdtls").organize_imports)
-				end
-
 				return {
 					timeout_ms = 500,
 					lsp_format = "fallback",
