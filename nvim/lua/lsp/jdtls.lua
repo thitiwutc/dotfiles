@@ -58,6 +58,9 @@ function M.setup()
 				format = {
 					enabled = true,
 				},
+				saveActions = {
+					organizeImports = true,
+				},
 			},
 		},
 
