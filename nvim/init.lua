@@ -670,11 +670,23 @@ require("lazy").setup({
 				lua = { "stylua" },
 				html = { "html_beautify" },
 				go = { "goimports" },
+				java = { "google-java-format" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+			formatters = {
+				["google-java-format"] = {
+					command = "java",
+					args = {
+						"-jar",
+						"/home/thitiwut/.m2/repository/com/google/googlejavaformat/google-java-format/1.30.0/google-java-format-1.30.0-all-deps.jar",
+						"-",
+					},
+					stdin = true,
+				},
 			},
 		},
 	},
