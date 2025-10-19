@@ -289,7 +289,7 @@ require("lazy").setup({
 					},
 				},
 				defaults = {
-					path_display = { "smart" },
+					path_display = { "smart", "shorten" },
 					file_ignore_patterns = {
 						"target/", -- (optional) exclude Maven target folder
 						"build/", -- (optional) exclude Gradle build folder
@@ -566,6 +566,7 @@ require("lazy").setup({
 				jsonls = {},
 				dockerls = {},
 				jdtls = {},
+				rust_analyzer = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
