@@ -12,6 +12,18 @@ function M.setup()
 	end
 	local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
+	local function find_maven_parent_dir()
+		local cwd = vim.fn.expand("%:p:h")
+		local last_pom = nil
+		while cwd ~= "/" do
+			if vim.fn.filereadable(cwd .. "/pom.xml") == 1 then
+				last_pom = cwd
+			end
+			cwd = vim.fn.fnamemodify(cwd, ":h")
+		end
+		return last_pom or vim.loop.cwd()
+	end
+
 	local config = {
 		cmd = {
 			"/home/thitiwut/.sdkman/candidates/java/21.0.8-tem/bin/java",
@@ -34,8 +46,7 @@ function M.setup()
 			"-data",
 			workspace_dir,
 		},
-		root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
-			or vim.fn.getcwd(),
+		root_dir = find_maven_parent_dir(),
 
 		settings = {
 			java = {
