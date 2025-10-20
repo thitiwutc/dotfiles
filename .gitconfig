@@ -10,6 +10,7 @@ ca = commit --amend
 aa = add --all
 ai = add -i
 ap = add -p
+ae = add -e
 ci = commit
 br = branch
 ba = branch --all
