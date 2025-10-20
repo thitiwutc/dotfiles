@@ -1,30 +1,30 @@
 [core]
-editor = nvim
-excludesfile = ~/.gitignore_global
+	editor = nvim
+	excludesfile = ~/.gitignore_global
 [alias]
-mg = merge
-mgnf = merge --no-ff
-co = checkout
-st = status
-ca = commit --amend
-aa = add --all
-ai = add -i
-ap = add -p
-ae = add -e
-ci = commit
-br = branch
-ba = branch --all
-df = diff
-ds = diff --staged
-ph = push
-pl = pull
-ft = fetch
-rv = revert
-lg = log
-graph = log --all --graph --decorate --oneline
+	mg = merge
+	mgnf = merge --no-ff
+	co = checkout
+	st = status
+	ca = commit --amend
+	aa = add --all
+	ai = add -i
+	ap = add -p
+	ae = add -e
+	ci = commit
+	br = branch
+	ba = branch --all
+	df = diff
+	ds = diff --staged
+	ph = push
+	pl = pull
+	ft = fetch
+	rv = revert
+	lg = log
+	graph = log --all --graph --decorate --oneline
 [user]
-name = Thitiwut Chutipongwanit
-email = thitiwut.chu@gmail.com
+	name = Thitiwut Chutipongwanit
+	email = thitiwut.chu@gmail.com
 [mergetool]
-keepBackup = false
+	keepBackup = false
 
