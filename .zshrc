@@ -164,3 +164,6 @@ case "$(detect_os)" in
     ;;
 esac
 
+# Aliases
+alias dc="docker compose"
+
