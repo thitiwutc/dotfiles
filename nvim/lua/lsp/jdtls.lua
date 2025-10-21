@@ -56,7 +56,7 @@ function M.setup()
 					},
 				},
 				format = {
-					enabled = true,
+					enabled = false,
 				},
 				saveActions = {
 					organizeImports = true,
