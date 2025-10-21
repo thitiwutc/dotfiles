@@ -59,7 +59,7 @@ function M.setup()
 					enabled = false,
 				},
 				saveActions = {
-					organizeImports = true,
+					organizeImports = false,
 				},
 			},
 		},
