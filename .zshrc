@@ -164,3 +164,5 @@ esac
 # Aliases
 alias dc="docker compose"
 
+# Config SSH agent
+[[ -f ~/.ssh/agent_env ]] && source ~/.ssh/agent_env > /dev/null
