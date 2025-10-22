@@ -103,9 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Prompt string
-export PS1="%{$(tput setaf 117)%}%1~ %{$(tput sgr0)%}$ "
-
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 export NVM_DIR="$HOME/.nvm"
