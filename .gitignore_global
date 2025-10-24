@@ -8,3 +8,6 @@ bin/
 
 # Log
 *.log
+
+# Envs
+.env*
