@@ -166,3 +166,6 @@ alias dc="docker compose"
 
 # Config SSH agent
 [[ -f ~/.ssh/agent_env ]] && source ~/.ssh/agent_env > /dev/null
+if ! pgrep ssh-agent > /dev/null; then
+	ssh-agent > ~/.ssh/agent_env && source ~/.ssh/agent_env > /dev/null
+fi
