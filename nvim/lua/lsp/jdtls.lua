@@ -12,6 +12,25 @@ function M.setup()
 	end
 	local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
+	-- Define the markers that identify a project root
+	local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+
+	-- Check parent directory first, then current
+	local function find_root_dir()
+		local parent_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":h")
+
+		-- Try finding root in parent directory
+		local root = jdtls.setup.find_root(root_markers, parent_dir)
+
+		-- If not found, try current directory
+		if not root or root == "" then
+			root = jdtls.setup.find_root(root_markers)
+		end
+
+		-- Fallback to cwd if nothing found
+		return root or vim.fn.getcwd()
+	end
+
 	local config = {
 		cmd = {
 			"/home/thitiwut/.sdkman/candidates/java/21.0.8-tem/bin/java",
@@ -34,8 +53,7 @@ function M.setup()
 			"-data",
 			workspace_dir,
 		},
-		root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
-			or vim.fn.getcwd(),
+		root_dir = find_root_dir(),
 
 		settings = {
 			java = {
