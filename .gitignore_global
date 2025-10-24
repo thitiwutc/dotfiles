@@ -11,3 +11,6 @@ bin/
 
 # Envs
 .env*
+
+# Temporary files
+*.tmp
