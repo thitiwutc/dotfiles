@@ -567,6 +567,7 @@ require("lazy").setup({
 				dockerls = {},
 				jdtls = {},
 				rust_analyzer = {},
+				graphql = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
