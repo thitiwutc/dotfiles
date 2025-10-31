@@ -156,6 +156,7 @@ case "$(detect_os)" in
 	alias here="finder ."
     ;;
   windows)
+	export PATH=/mnt/c/Windows/system32:$PATH
     ;;
   *)
     ;;
