@@ -2,6 +2,7 @@ bin/
 
 # MacOS
 .DS_Store
+__MACOSX
 
 # JetBrains IDEs
 .idea/
