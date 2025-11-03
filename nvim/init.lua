@@ -289,7 +289,7 @@ require("lazy").setup({
 					},
 				},
 				defaults = {
-					path_display = { "smart", "shorten" },
+					path_display = { "smart", "truncate" },
 					file_ignore_patterns = {
 						"target/", -- (optional) exclude Maven target folder
 						"build/", -- (optional) exclude Gradle build folder
