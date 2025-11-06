@@ -567,7 +567,9 @@ require("lazy").setup({
 				dockerls = {},
 				jdtls = {},
 				rust_analyzer = {},
-				graphql = {},
+				graphql = {
+					filetypes = { "graphql", "graphqls", "gql" },
+				},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -672,6 +674,9 @@ require("lazy").setup({
 				html = { "html_beautify" },
 				go = { "goimports" },
 				java = { "google-java-format" },
+				graphql = { "prettier_graphql" },
+				gql = { "prettier_graphql" },
+				graphqls = { "prettier_graphql" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -687,6 +692,17 @@ require("lazy").setup({
 						"-",
 					},
 					stdin = true,
+				},
+				prettier_graphql = {
+					-- The executable command
+					command = "prettier",
+					-- Args: use --stdin-filepath so prettier picks correct parser by filename
+					args = { "--stdin-filepath", "$FILENAME" },
+					stdin = true,
+					-- Optional: specify fallback parser if prettier can’t detect
+					env = {
+						PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/prettier/.prettierrc"),
+					},
 				},
 			},
 		},
