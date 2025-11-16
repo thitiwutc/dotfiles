@@ -164,6 +164,7 @@ esac
 
 # Aliases
 alias dc="docker compose"
+alias kc="kubectl"
 
 # Config SSH agent
 [[ -f ~/.ssh/agent_env ]] && source ~/.ssh/agent_env > /dev/null
