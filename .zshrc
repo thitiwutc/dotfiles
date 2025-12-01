@@ -152,19 +152,20 @@ detect_os() {
 }
 
 case "$(detect_os)" in
-  wsl)
-	alias here="explorer.exe ."
-    ;;
-  linux)
-    ;;
-  macos)
-	alias here="finder ."
-    ;;
-  windows)
-	export PATH=/mnt/c/Windows/system32:$PATH
-    ;;
-  *)
-    ;;
+	wsl)
+		alias here="explorer.exe ."
+		export PATH=/mnt/c/Windows/system32:$PATH
+		;;
+	linux)
+		;;
+	macos)
+		alias here="finder ."
+		;;
+	windows)
+		export PATH=/mnt/c/Windows/system32:$PATH
+		;;
+	*)
+		;;
 esac
 
 # Aliases
