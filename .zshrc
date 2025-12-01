@@ -1,3 +1,10 @@
+# # Auto-start tmux if not already inside it
+if command -v tmux >/dev/null 2>&1; then
+  if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]; then
+    tmux
+  fi
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -121,8 +128,6 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:$HOME/FlameGraph"
 
 [[ -s $HOME/.aliases ]] && source $HOME/.aliases
-tmux &> /dev/null
-
 [[ -s "/home/thitiwut/.gvm/scripts/gvm" ]] && source "/home/thitiwut/.gvm/scripts/gvm"
 
 # Export Neovim path
