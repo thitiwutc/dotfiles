@@ -563,6 +563,7 @@ require("lazy").setup({
 				pyright = {},
 				html = {},
 				ts_ls = {},
+				eslint = {},
 				jsonls = {},
 				dockerls = {},
 				jdtls = {},
