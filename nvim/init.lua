@@ -444,11 +444,6 @@ require("lazy").setup({
 					--  Similar to document symbols, except searches over your entire project.
 					map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
 
-					-- Jump to the type of the word under your cursor.
-					--  Useful when you're not sure what type a variable is and you want to see
-					--  the definition of its *type*, not where it was *defined*.
-					map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
-
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
