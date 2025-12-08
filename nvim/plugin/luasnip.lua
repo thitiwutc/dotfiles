@@ -9,6 +9,10 @@ local function filename_without_ext()
 	return vim.fn.expand("%:t:r")
 end
 
+local function cur_folder_name()
+	return vim.fn.fnamemodify(vim.fn.expand("%:h"), ":t")
+end
+
 -- Java snippets
 ls.add_snippets("java", {
 	-- System.out.printf snippet
@@ -47,6 +51,16 @@ ls.add_snippets("java", {
 		t("public interface "),
 		f(filename_without_ext, {}),
 		t({ " {", "\t" }),
+		i(0),
+		t({ "", "}" }),
+	}),
+})
+
+ls.add_snippets("go", {
+	s("pkg", { t("package "), f(cur_folder_name, {}) }),
+
+	s("pmain", {
+		t({ "package main", "", "func main() {", "\t" }),
 		i(0),
 		t({ "", "}" }),
 	}),
