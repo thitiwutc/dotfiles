@@ -1030,14 +1030,3 @@ require("lazy").setup({
 		},
 	},
 })
-
--- Load lsp.jdtls only for java files.
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "java",
-	callback = function()
-		vim.opt_local.tabstop = 2
-		vim.opt_local.shiftwidth = 2
-
-		require("lsp.jdtls").setup()
-	end,
-})
