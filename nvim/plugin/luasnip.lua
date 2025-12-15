@@ -54,6 +54,21 @@ ls.add_snippets("java", {
 		i(0),
 		t({ "", "}" }),
 	}),
+
+	-- Package + class snippet
+	s("penum", {
+		-- Package line
+		t("package "),
+		i(1, "com.example"),
+		t({ ";", "" }),
+		t({ "", "" }),
+		-- Class declaration using file name
+		t("public enum "),
+		f(filename_without_ext, {}),
+		t({ " {", "\t" }),
+		i(0),
+		t({ "", "}" }),
+	}),
 })
 
 ls.add_snippets("go", {
