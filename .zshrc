@@ -155,6 +155,7 @@ case "$(detect_os)" in
 	wsl)
 		alias here="explorer.exe ."
 		export PATH=/mnt/c/Windows/system32:$PATH
+		export PATH=/mnt/c/Windows:$PATH
 		;;
 	linux)
 		;;
@@ -163,6 +164,7 @@ case "$(detect_os)" in
 		;;
 	windows)
 		export PATH=/mnt/c/Windows/system32:$PATH
+		export PATH=/mnt/c/Windows:$PATH
 		;;
 	*)
 		;;
