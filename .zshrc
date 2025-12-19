@@ -182,3 +182,6 @@ fi
 
 # Set prompt string
 PROMPT='%F{cyan}%1~%f %F{blue}➜%f '
+
+# Source local if present
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
