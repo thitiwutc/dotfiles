@@ -171,7 +171,6 @@ case "$(detect_os)" in
 esac
 
 # Aliases
-alias dc="docker compose"
 alias kc="kubectl"
 
 # Config SSH agent
