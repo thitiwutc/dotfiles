@@ -179,3 +179,6 @@ alias kc="kubectl"
 if ! pgrep ssh-agent > /dev/null; then
 	ssh-agent > ~/.ssh/agent_env && source ~/.ssh/agent_env > /dev/null
 fi
+
+# Set prompt string
+PROMPT='%F{cyan}%1~%f %F{blue}➜%f '
