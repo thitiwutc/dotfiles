@@ -171,6 +171,7 @@ case "$(detect_os)" in
 esac
 
 # Aliases
+alias g="git"
 alias kc="kubectl"
 
 # Config SSH agent
