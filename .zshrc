@@ -181,7 +181,7 @@ if ! pgrep ssh-agent > /dev/null; then
 fi
 
 # Set prompt string
-PROMPT='%F{cyan}%1~%f %F{blue}➜%f '
+PROMPT='%F{cyan}%1~%f $ '
 
 # Source local if present
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
