@@ -77,7 +77,7 @@ export DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -179,9 +179,6 @@ alias kc="kubectl"
 if ! pgrep ssh-agent > /dev/null; then
 	ssh-agent > ~/.ssh/agent_env && source ~/.ssh/agent_env > /dev/null
 fi
-
-# Set prompt string
-PROMPT='%F{cyan}%1~%f $ '
 
 # Source local if present
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
