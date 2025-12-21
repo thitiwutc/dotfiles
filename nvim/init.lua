@@ -293,6 +293,8 @@ require("lazy").setup({
 					file_ignore_patterns = {
 						"target/", -- (optional) exclude Maven target folder
 						"build/", -- (optional) exclude Gradle build folder
+						".git/", -- .git directory
+						".idea/",
 					},
 				},
 				pickers = {
