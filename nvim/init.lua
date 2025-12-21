@@ -295,6 +295,12 @@ require("lazy").setup({
 						"build/", -- (optional) exclude Gradle build folder
 					},
 				},
+				pickers = {
+					find_files = {
+						hidden = true, -- Show hidden files
+						no_ignore = true, -- Show git ignored files
+					},
+				},
 			})
 
 			-- Enable Telescope extensions if they are installed
