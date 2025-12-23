@@ -170,10 +170,6 @@ case "$(detect_os)" in
 		;;
 esac
 
-# Aliases
-alias g="git"
-alias kc="kubectl"
-
 # Config SSH agent
 [[ -f ~/.ssh/agent_env ]] && source ~/.ssh/agent_env > /dev/null
 if ! pgrep ssh-agent > /dev/null; then
