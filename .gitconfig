@@ -27,4 +27,6 @@
 	email = thitiwut.chu@gmail.com
 [mergetool]
 	keepBackup = false
+[http]
+	connectTimeout = 5
 
