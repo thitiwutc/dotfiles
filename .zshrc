@@ -171,10 +171,15 @@ case "$(detect_os)" in
 esac
 
 # Git push to remote branch in remote repo with upstream added.
-gpurr() {
+gpurr () {
 	repo="${1:-origin}"
 	cur_br="$(git branch --show-current)"
 	git push -u $repo $cur_br
+}
+
+mcd () {
+    mkdir -p "$1"
+    cd "$1"
 }
 
 # Config SSH agent
