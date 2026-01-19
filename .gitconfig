@@ -3,7 +3,7 @@
 	excludesfile = ~/.gitignore_global
 [alias]
 	mg = merge
-	mgnf = merge --no-ff
+	mn = merge --no-ff
 	co = checkout
 	st = status
 	ca = commit --amend
@@ -21,6 +21,7 @@
 	ft = fetch
 	rv = revert
 	lg = log
+	lo = log --oneline
 	graph = log --all --graph --decorate --oneline
 [user]
 	name = Thitiwut Chutipongwanit
