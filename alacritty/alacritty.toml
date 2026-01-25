@@ -10,7 +10,7 @@ COLORTERM = "truecolor"
 shell = "wsl.exe"
 
 [font]
-normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 13
 
 [window]
