@@ -574,6 +574,7 @@ require("lazy").setup({
 				graphql = {
 					filetypes = { "graphql", "graphqls", "gql" },
 				},
+				svelte = {},
 				yamlls = {},
 				clangd = {},
 				bashls = {},
