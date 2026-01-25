@@ -80,3 +80,37 @@ ls.add_snippets("go", {
 		t({ "", "}" }),
 	}),
 })
+
+-- TS/JS snippet
+ls.add_snippets("javascript", {
+	s("clg", {
+		t("console.log("),
+		i(1),
+		t(");"),
+	}),
+})
+ls.add_snippets("javascript", {
+	s("cerr", {
+		t("console.error("),
+		i(1),
+		t(");"),
+	}),
+})
+ls.add_snippets("javascript", {
+	s("cwarn", {
+		t("console.warn("),
+		i(1),
+		t(");"),
+	}),
+})
+ls.add_snippets("javascript", {
+	s("ctable", {
+		t("console.table("),
+		i(1),
+		t(");"),
+	}),
+})
+ls.filetype_extend("typescript", { "javascript" })
+ls.filetype_extend("javascriptreact", { "javascript" })
+ls.filetype_extend("typescriptreact", { "javascript" })
+ls.filetype_extend("svelte", { "javascript" })
