@@ -13,7 +13,7 @@ function M.setup()
 	local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
 	-- Define the markers that identify a project root
-	local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+	local root_markers = { "mvnw", "gradlew", "pom.xml", "build.gradle", ".git" }
 
 	-- Check parent directory first, then current
 	local function find_root_dir()
