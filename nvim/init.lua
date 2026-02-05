@@ -684,6 +684,7 @@ require("lazy").setup({
 				graphql = { "prettier_graphql" },
 				gql = { "prettier_graphql" },
 				graphqls = { "prettier_graphql" },
+				sql = { "sql_formatter" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -710,6 +711,11 @@ require("lazy").setup({
 					env = {
 						PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/prettier/.prettierrc"),
 					},
+				},
+				sql_formatter = {
+					command = "sql-formatter",
+					args = { "-l", "tsql" },
+					stdin = true,
 				},
 			},
 		},
