@@ -177,6 +177,11 @@ gpur () {
 	git push -u $repo $cur_br
 }
 
+gpo () {
+	refspec="${1:-origin}"
+	git push origin $refspec
+}
+
 mcd () {
     mkdir -p "$1"
     cd "$1"
