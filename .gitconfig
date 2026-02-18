@@ -30,4 +30,6 @@
 	keepBackup = false
 [http]
 	connectTimeout = 5
+[log]
+	date = iso-local
 
