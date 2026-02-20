@@ -28,8 +28,6 @@
 [user]
 	name = Thitiwut Chutipongwanit
 	email = thitiwut.chu@gmail.com
-[merge]
-	conflictstyle = zdiff3
 [mergetool]
 	keepBackup = false
 [http]
