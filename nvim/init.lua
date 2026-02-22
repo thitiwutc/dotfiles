@@ -624,6 +624,7 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"java-debug-adapter",
 				"delve", -- Golang debug adapter
+				"codelldb",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
