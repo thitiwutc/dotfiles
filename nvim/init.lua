@@ -620,6 +620,11 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
+			-- Install debug adapters
+			vim.list_extend(ensure_installed, {
+				"java-debug-adapter",
+				"delve", -- Golang debug adapter
+			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({
