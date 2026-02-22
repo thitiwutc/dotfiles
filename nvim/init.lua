@@ -724,6 +724,10 @@ require("lazy").setup({
 	{
 		"mfussenegger/nvim-jdtls",
 	},
+	{
+		"mfussenegger/nvim-dap",
+		version = "0.10.0",
+	},
 
 	{ -- Autocompletion
 		"saghen/blink.cmp",
