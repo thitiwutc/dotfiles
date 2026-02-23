@@ -729,6 +729,9 @@ require("lazy").setup({
 
 	{
 		"mfussenegger/nvim-jdtls",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
 	},
 	{
 		"mfussenegger/nvim-dap",
