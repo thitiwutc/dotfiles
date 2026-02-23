@@ -742,6 +742,44 @@ require("lazy").setup({
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+			dapui.setup()
+
+			-- Go adapter
+			dap.adapters.go = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command = "dlv",
+					args = { "dap", "-l", "127.0.0.1:${port}" },
+				},
+			}
+
+			-- Go configurations
+			dap.configurations.go = {
+				{
+					type = "go",
+					name = "Debug file",
+					request = "launch",
+					program = "${file}",
+				},
+				{
+					type = "go",
+					name = "Debug package",
+					request = "launch",
+					program = "${workspaceFolder}",
+				},
+				{
+					type = "go",
+					name = "Debug test",
+					request = "launch",
+					mode = "test",
+					program = "${file}",
+				},
+			}
+		end,
 	},
 
 	{ -- Autocompletion
