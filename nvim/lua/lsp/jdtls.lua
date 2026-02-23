@@ -31,6 +31,12 @@ function M.setup()
 		return root or vim.fn.getcwd()
 	end
 
+	local mason_path = vim.fn.stdpath("data") .. "/mason/"
+
+	local bundles = {
+		vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+	}
+
 	local config = {
 		cmd = {
 			"/home/thitiwut/.sdkman/candidates/java/21.0.8-tem/bin/java",
@@ -83,7 +89,7 @@ function M.setup()
 		},
 
 		init_options = {
-			bundles = {},
+			bundles = bundles,
 		},
 	}
 	require("jdtls").start_or_attach(config)
