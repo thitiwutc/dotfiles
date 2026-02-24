@@ -23,7 +23,7 @@
 	ft = fetch
 	rv = revert
 	lg = log
-	lo = log --oneline
+	lo = log --oneline --decorate
 	graph = log --all --graph --decorate --oneline
 [user]
 	name = Thitiwut Chutipongwanit
