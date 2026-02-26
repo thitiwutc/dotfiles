@@ -691,6 +691,7 @@ require("lazy").setup({
 				gql = { "prettier_graphql" },
 				graphqls = { "prettier_graphql" },
 				sql = { "sql_formatter" },
+				markdown = { "markdownlint-cli2" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
