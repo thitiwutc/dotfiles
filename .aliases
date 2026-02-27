@@ -4,6 +4,7 @@ alias g=git
 alias kc=kubectl
 
 alias mcc="mvn clean compile"
+alias mct="mvn clean test"
 alias mi="mvn install"
 
 
