@@ -25,6 +25,7 @@
 	lg = log
 	lo = log --oneline --decorate
 	graph = log --all --graph --decorate --oneline
+	cp = cherry-pick
 [user]
 	name = Thitiwut Chutipongwanit
 	email = thitiwut.chu@gmail.com
