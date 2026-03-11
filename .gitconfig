@@ -26,6 +26,11 @@
 	lo = log --oneline --decorate
 	graph = log --all --graph --decorate --oneline
 	cp = cherry-pick
+	mir = !git checkout -b "mirror/$(git branch --show-current)"
+	tca = tag --sort=creatordate
+	tcd = tag --sort=-creatordate
+	tva = tag --sort=v:refname
+	tvd = tag --sort=-v:refname
 [user]
 	name = Thitiwut Chutipongwanit
 	email = thitiwut.chu@gmail.com
