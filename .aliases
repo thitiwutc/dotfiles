@@ -6,6 +6,5 @@ alias kc=kubectl
 alias mi="mvn install"
 alias mcc="mvn clean compile"
 alias mct="mvn clean test"
+alias mcp="mvn clean package"
 alias mcct="mvn clean compile test"
-
-
