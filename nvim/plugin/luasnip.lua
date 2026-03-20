@@ -69,6 +69,21 @@ ls.add_snippets("java", {
 		i(0),
 		t({ "", "}" }),
 	}),
+
+	-- Package + record snippet
+	s("prec", {
+		-- Package line
+		t("package "),
+		i(1, "com.example"),
+		t({ ";", "" }),
+		t({ "", "" }),
+		-- Class declaration using file name
+		t("public record "),
+		f(filename_without_ext, {}),
+		t("("),
+		i(0),
+		t({ ") {}" }),
+	}),
 })
 
 ls.add_snippets("go", {
