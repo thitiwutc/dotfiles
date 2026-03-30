@@ -156,6 +156,8 @@ case "$(detect_os)" in
 		alias here="explorer.exe ."
 		export PATH=/mnt/c/Windows/system32:$PATH
 		export PATH=/mnt/c/Windows:$PATH
+		alias copy='clip.exe'
+		alias paste='powershell.exe -command Get-Clipboard'
 		;;
 	linux)
 		;;
