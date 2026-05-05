@@ -53,6 +53,7 @@ do
     fi
 
     if [[ "$file" == "nvim" ]]; then
+        mkdir -p "$HOME/.config"
         installed_path="$HOME/.config/nvim"
 
         if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
