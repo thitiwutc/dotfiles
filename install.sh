@@ -20,6 +20,7 @@ shift $((OPTIND - 1))
 # Default dotfiles
 dotfiles=(
     "nvim"
+	"ghostty"
     ".tmux.conf"
     ".gitconfig"
     ".gitignore_global"
@@ -57,12 +58,24 @@ do
         installed_path="$HOME/.config/nvim"
 
         if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
-            # Skip when file content is indifferent.
-            if diff -rq "$file" "$installed_path" > /dev/null; then
-                skipped+=("$file")
-                continue
-            fi
+            rm -rf "$installed_path"
+            ln -s "$(realpath "$file")" "$installed_path"
+            installed+=("$file")
+        elif [[ ! -e  "$installed_path" ]]; then
+            ln -s "$(realpath "$file")" "$installed_path"
+            installed+=("$file")
+        else
+            skipped+=("$file")
+        fi
 
+        continue
+    fi
+
+    if [[ "$file" == "ghostty" ]]; then
+        mkdir -p "$HOME/.config"
+        installed_path="$HOME/.config/ghostty"
+
+        if [[ -e "$installed_path" && "$REPLACE" = true ]]; then
             rm -rf "$installed_path"
             ln -s "$(realpath "$file")" "$installed_path"
             installed+=("$file")
@@ -78,9 +91,9 @@ do
 
     if [[ "$file" == ".gitconfig" ]]; then
         default_email="$(grep 'email' .gitconfig | sed -E 's/\s*email\s*=\s*//')"
-		if [[ -e "$HOME/.gitconfig" ]]; then
-			default_email="$(grep 'email' "$HOME/.gitconfig" | sed -E 's/\s*email\s*=\s*//')"
-		fi
+        if [[ -e "$HOME/.gitconfig" ]]; then
+            default_email="$(grep 'email' "$HOME/.gitconfig" | sed -E 's/\s*email\s*=\s*//')"
+        fi
         echo -n ".gitconfig user.email: ($default_email) "
         read -r email
 
