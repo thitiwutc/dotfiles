@@ -622,6 +622,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"google-java-format",
 			})
 			-- Install debug adapters
 			vim.list_extend(ensure_installed, {
@@ -702,15 +703,6 @@ require("lazy").setup({
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 			formatters = {
-				["google-java-format"] = {
-					command = "java",
-					args = {
-						"-jar",
-						"/home/thitiwut/.m2/repository/com/google/googlejavaformat/google-java-format/1.30.0/google-java-format-1.30.0-all-deps.jar",
-						"-",
-					},
-					stdin = true,
-				},
 				prettier_graphql = {
 					-- The executable command
 					command = "prettier",
