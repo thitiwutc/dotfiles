@@ -27,6 +27,7 @@ dotfiles=(
     ".aliases"
     ".zshrc"
     ".vimrc"
+    ".clang-format"
 )
 
 if [[ $# -gt 0 ]]; then
