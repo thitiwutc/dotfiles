@@ -1,43 +1,43 @@
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore_global
+    editor = nvim
+    excludesfile = ~/.gitignore_global
 [alias]
-	mg = merge
-	mn = merge --no-ff
-	co = checkout
-	st = status
-	ca = commit --amend
-	aa = add --all
-	ai = add -i
-	ap = add -p
-	ae = add -e
-	ci = commit
-	br = branch
-	ba = branch --all
-	df = diff
-	ds = diff --staged
-	ph = push
-	pl = pull
-	ft = fetch
-	rv = revert
-	lg = log
-	lo = log --oneline --decorate
-	graph = log --all --graph --decorate --oneline
-	cp = cherry-pick
-	mir = !git checkout -b "mirror/$(git branch --show-current)"
-	tca = tag --sort=creatordate
-	tcd = tag --sort=-creatordate
-	tva = tag --sort=v:refname
-	tvd = tag --sort=-v:refname
+    mg = merge
+    mn = merge --no-ff
+    co = checkout
+    st = status
+    ca = commit --amend
+    aa = add --all
+    ai = add -i
+    ap = add -p
+    ae = add -e
+    ci = commit
+    br = branch
+    ba = branch --all
+    df = diff
+    ds = diff --staged
+    ph = push
+    pl = pull
+    ft = fetch
+    rv = revert
+    lg = log
+    lo = log --oneline --decorate
+    graph = log --all --graph --decorate --oneline
+    cp = cherry-pick
+    mir = !git checkout -b "mirror/$(git branch --show-current)"
+    tca = tag --sort=creatordate
+    tcd = tag --sort=-creatordate
+    tva = tag --sort=v:refname
+    tvd = tag --sort=-v:refname
 [user]
-	name = Thitiwut Chutipongwanit
-	email = thitiwut.chu@gmail.com
+    name = Thitiwut Chutipongwanit
+    email = thitiwut.chu@gmail.com
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 [http]
-	connectTimeout = 5
+    connectTimeout = 5
 [log]
-	date = iso-local
+    date = iso-local
 
