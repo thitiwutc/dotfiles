@@ -91,10 +91,7 @@ do
     fi
 
     if [[ "$file" == ".gitconfig" ]]; then
-        default_email="$(grep 'email' .gitconfig | sed -E 's/\s*email\s*=\s*//')"
-        if [[ -e "$HOME/.gitconfig" ]]; then
-            default_email="$(grep 'email' "$HOME/.gitconfig" | sed -E 's/\s*email\s*=\s*//')"
-        fi
+        default_email="$(git config --file ./.gitconfig user.email)"
         echo -n ".gitconfig user.email: ($default_email) "
         read -r email
 
