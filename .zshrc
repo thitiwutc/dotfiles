@@ -155,7 +155,7 @@ case "$(detect_os)" in
 	linux)
 		;;
 	macos)
-		alias here="finder ."
+		alias here="open ."
 		;;
 	windows)
 		export PATH=/mnt/c/Windows/system32:$PATH
