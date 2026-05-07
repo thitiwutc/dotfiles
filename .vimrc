@@ -87,3 +87,5 @@ set expandtab
 
 " size of an "indent"
 set shiftwidth=4
+
+set termguicolors
