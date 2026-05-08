@@ -956,8 +956,10 @@ require("lazy").setup({
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		main = "nvim-treesitter.config", -- Sets main module to use for opts
+		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+		branch = "master",
+		commit = "cf12346a3414fa1b06af75c79faebe7f76df080a",
 		opts = {
 			ensure_installed = {
 				"bash",
