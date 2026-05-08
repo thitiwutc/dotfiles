@@ -381,6 +381,7 @@ require("lazy").setup({
 			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
 		},
+		version = "~2.9.0",
 		config = function()
 			-- Brief aside: **What is LSP?**
 			--
