@@ -92,4 +92,3 @@ set termguicolors
 
 let mapleader = " "
 nnoremap <leader>w :w!<CR>
-nnoremap <leader>x :x<CR>

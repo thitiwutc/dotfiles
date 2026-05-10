@@ -92,7 +92,6 @@ vim.o.confirm = true
 
 -- Fast saving
 vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>")
-vim.keymap.set("n", "<leader>x", "<cmd>x<cr>") -- Save and quit
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
