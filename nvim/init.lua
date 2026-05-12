@@ -16,7 +16,7 @@ vim.o.termguicolors = true
 
 -- Enable function folding
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Start with all folds open
 vim.o.foldlevel = 99 -- High level = all folds open
