@@ -175,7 +175,38 @@ require("lazy").setup({
 		config = function()
 			require("tree-sitter-manager").setup({
 				-- Default Options
-				-- ensure_installed = {}, -- list of parsers to install at the start of a neovim session
+				ensure_installed = {
+					"c",
+					"cpp",
+					"css",
+					"dockerfile",
+					"elixir",
+					"git_config",
+					"gitcommit",
+					"gitignore",
+					"go",
+					"gomod",
+					"gosum",
+					"gotmpl",
+					"gowork",
+					"graphql",
+					"html",
+					"java",
+					"javadoc",
+					"javascript",
+					"json",
+					"jsx",
+					"just",
+					"markdown",
+					"proto",
+					"python",
+					"r",
+					"rust",
+					"ssh_config",
+					"typescript",
+					"vue",
+					"yaml",
+				},
 				-- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
 				-- auto_install = false, -- if enabled, install missing parsers when editing a new file
 				-- highlight = true, -- treesitter highlighting is enabled by default
