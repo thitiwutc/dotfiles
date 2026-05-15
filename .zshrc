@@ -163,6 +163,7 @@ case "$(detect_os)" in
 		;;
 	macos)
 		alias here="open ."
+        export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 		;;
 	windows)
 		export PATH=/mnt/c/Windows/system32:$PATH
