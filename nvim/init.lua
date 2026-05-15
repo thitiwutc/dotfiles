@@ -1022,8 +1022,8 @@ require("lazy").setup({
 			require("telescope").load_extension("textcase")
 		end,
 		keys = {
-			"gj", -- Default invocation prefix
-			{ "gj.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+			"<leader>c", -- Default invocation prefix
+			{ "<leader>c.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
 		},
 		cmd = {
 			-- NOTE: The Subs command name can be customized via the option "substitude_command_name"
