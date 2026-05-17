@@ -98,7 +98,7 @@ ls.add_snippets("go", {
 
 -- TS/JS snippet
 ls.add_snippets("javascript", {
-	s("clg", {
+	s("clog", {
 		t("console.log("),
 		i(1),
 		t(");"),
