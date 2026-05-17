@@ -89,3 +89,6 @@ set expandtab
 set shiftwidth=4
 
 set termguicolors
+
+let mapleader = " "
+nnoremap <leader>w :w!<CR>
