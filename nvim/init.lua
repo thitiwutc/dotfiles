@@ -1094,3 +1094,14 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Manual start treesitter for .js, .jsx, .ts, and .tsx files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"typescriptreact",
+		"javascriptreact",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
