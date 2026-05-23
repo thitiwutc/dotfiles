@@ -174,7 +174,7 @@ case "$(detect_os)" in
 esac
 
 # Git push to remote branch in remote repo with upstream added.
-gpur () {
+gpuo () {
 	repo="${1:-origin}"
 	cur_br="$(git branch --show-current)"
 	git push -u $repo $cur_br
