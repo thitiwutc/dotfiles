@@ -724,7 +724,6 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				html = { "html_beautify" },
 				go = { "goimports" },
 				java = { "google-java-format" },
 				graphql = { "prettier_graphql" },
