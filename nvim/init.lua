@@ -626,6 +626,7 @@ require("lazy").setup({
 				cssls = {},
 				markdownlint = {},
 				checkmake = {},
+				vue_ls = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
