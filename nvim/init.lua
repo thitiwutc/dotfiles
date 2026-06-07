@@ -190,6 +190,7 @@ require("lazy").setup({
 					"gotmpl",
 					"gowork",
 					"graphql",
+					"hurl",
 					"html",
 					"java",
 					"javadoc",
