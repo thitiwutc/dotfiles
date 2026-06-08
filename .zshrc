@@ -1,10 +1,3 @@
-# # Auto-start tmux if not already inside it
-if command -v tmux >/dev/null 2>&1; then
-  if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]; then
-    tmux
-  fi
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
