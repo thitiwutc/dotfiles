@@ -203,3 +203,4 @@ if command -v brew >/dev/null 2>&1; then
   source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+export EDITOR=vim
