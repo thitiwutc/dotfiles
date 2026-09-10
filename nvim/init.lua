@@ -654,6 +654,7 @@ require("lazy").setup({
 						},
 					},
 				},
+				ruff = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -777,6 +778,7 @@ require("lazy").setup({
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				vue = { "prettier" },
+				python = { "ruff_formatter" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -798,6 +800,11 @@ require("lazy").setup({
 				sql_formatter = {
 					command = "sql-formatter",
 					args = { "-l", "tsql" },
+					stdin = true,
+				},
+				ruff_formatter = {
+					command = "ruff",
+					args = { "format", "-" },
 					stdin = true,
 				},
 			},
